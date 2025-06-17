@@ -1,0 +1,61 @@
+.add_plans {
+    position: fixed;
+    width: 75vw;
+    height: 11vh;
+    background-color: #ffffff1c;
+    top: 20.5vh;
+    right:2.2vw;
+    border-radius: 10px;
+}
+
+.add {
+    position: fixed;
+    top: 23vh;
+    left: 23.9vw;
+    transition: 0.5s;
+}
+
+.add:hover {
+    color: #646cff;
+}
+
+.plans_input {
+    position: fixed;
+    width: 37vw;
+    height: 4vh;
+    top: 23.5vh;
+    right: 26vw;
+    border-color: #646cff;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.dieline {
+    position: fixed;
+    top: 23vh;
+    right: 18.7vw;
+    transition: 0.5s;
+}
+.dieline:hover {
+    color: #646cff;
+}
+
+.reminder {
+    position: fixed;
+    top: 23vh;
+    right: 10.5vw;
+    transition: 0.5s;
+}
+.reminder:hover {
+    color: #646cff;
+}
+
+.repeat {
+    position: fixed;
+    top: 23vh;
+    right: 3.3vw;
+    transition: 0.5s;
+}
+.repeat:hover {
+    color: #646cff;
+}

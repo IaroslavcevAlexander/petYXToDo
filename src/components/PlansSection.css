@@ -1,0 +1,17 @@
+.plans {
+    position: fixed;
+    background-color: #ffffff1c;
+    width: 75vw;
+    height: 64vh;
+    top: 33vh;
+    right:2.2vw;
+    border-radius: 10px;
+}
+
+.task {
+    position: fixed;
+    font-size: 14px;
+    font-weight: 100;
+    transform: scaleX(1.5);
+    left: 28vw;
+}

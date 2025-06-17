@@ -1,0 +1,62 @@
+.big {
+    position: absolute;
+    display: flex;
+    width: 78.2vw;
+    height: 90vh;
+    background-color: #000000ac;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    top: 8.5vh;
+    right: 0.5vw;
+}
+
+.data {
+    position: fixed;
+    top: 9vh;
+    left: 23vw;
+    font-size: 16px;
+}
+
+.today {
+    display: flex;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.mode {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    top: 12vh;
+    left: 35vw;
+}
+
+.net {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6vw;
+    height: 6vh;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.87);
+    transition: 0.5s;
+}
+.net:hover {
+    color: #646cff;
+}
+
+.list_mode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6vw;
+    height: 6vh;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.87);
+    transition: 0.5s;
+}
+.list_mode:hover {
+    color: #646cff;
+}
