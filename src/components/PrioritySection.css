@@ -1,0 +1,33 @@
+.priority-plans {
+    display: none;
+    position: fixed;
+    background-color: #ffffff1c;
+    width: 75vw;
+    height: 59vh;
+    top: 33vh;
+    right:2.2vw;
+    border-radius: 10px;
+    overflow: auto;
+    white-space: normal;
+    word-wrap: break-word;
+    padding-top: 5vh;
+    transition: 0.5s;
+}
+
+.priority-plans.collapsed {
+    display: none;
+    width: 93vw !important;
+}
+
+.plansss {
+    position: fixed;
+    width: 75vw;
+    height: 59vh;
+    top: 33vh;
+    right:2.2vw;
+    border-radius: 10px;
+    overflow: auto;
+    white-space: normal;
+    word-wrap: break-word;
+    padding-top: 5vh;
+}

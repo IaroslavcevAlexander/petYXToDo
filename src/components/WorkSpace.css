@@ -9,6 +9,11 @@
     border-radius: 10px;
     top: 8.5vh;
     right: 0.5vw;
+    transition: 0.5s;
+}
+
+.big.collapsed {
+    width: 96.2vw;
 }
 
 .data {
@@ -16,6 +21,14 @@
     top: 9vh;
     left: 23vw;
     font-size: 16px;
+    transition: 0.5s;
+}
+
+.data.collapsed {
+    position: fixed;
+    top: 9vh;
+    left: 5vw;
+    font-size: 17px;
 }
 
 .today {
@@ -30,7 +43,7 @@
     flex-direction: row;
     gap: 12px;
     top: 12vh;
-    left: 35vw;
+    right: 2.2vw;
 }
 
 .net {

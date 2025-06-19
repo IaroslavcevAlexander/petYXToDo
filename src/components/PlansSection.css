@@ -1,17 +1,141 @@
 .plans {
+    /* display: none; */
     position: fixed;
     background-color: #ffffff1c;
     width: 75vw;
-    height: 64vh;
+    height: 59vh;
     top: 33vh;
     right:2.2vw;
     border-radius: 10px;
+    overflow: auto;
+    white-space: normal;
+    word-wrap: break-word;
+    padding-top: 5vh;
+    transition: 0.5s;
+}
+
+.plans.collapsed {
+    width: 93vw !important;
+}
+
+.planss {
+    position: fixed;
+    width: 74vw;
+    background-color: #272727;
+    top: 33vh;
+    right:3.vw;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: auto;
+    white-space: normal;
+    word-wrap: break-word;
+    padding-top: 5vh;
+    z-index: 50;
+    transition: 0.5s;
+}
+
+.planss.collapsed {
+    width: 91.9vw;
+}
+
+.tasks {
+    position: fixed;
+    font-size: 14px;
+    font-weight: 90;
+    transform: scaleX(1.5);
+    top: 29vh;
+    left: 28vw;
+    margin-right: 5vw;
+    transition: 0.5s;
+}
+
+.tasks.collapsed {
+    left: 20vw;
+}
+
+.date-completion {
+    position: fixed;
+    font-size: 14px;
+    font-weight: 90;
+    transform: scaleX(1.5);
+    top: 29vh;
+    left: 80vw;
+    margin-right: 5vw;
+}
+
+.importace {
+    position: fixed;
+    font-size: 14px;
+    font-weight: 90;
+    transform: scaleX(1.5);
+    top: 29vh;
+    left: 92vw;
+    margin-right: 5vw;
 }
 
 .task {
-    position: fixed;
-    font-size: 14px;
-    font-weight: 100;
-    transform: scaleX(1.5);
-    left: 28vw;
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    gap: 10px;
+    border: 0.1px solid #cccccc47; 
+    border-radius: 10px;
+    margin: 0 5px 5px 5px; 
+    padding: 0 25vw 0 4vw;
+    background-color: #646cff1b;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.task-date {
+    position: absolute;
+    font-size: 17px;
+    color: #aaa;
+    right: 14vw;
+}
+
+.task-priority {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background-color: #646cff85;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    padding: 2px 6px;
+    cursor: pointer;
+    right: 3vw;
+}
+
+.task-text {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+.task-done {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background-color: #646cff70;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    padding: 2px 6px;
+    cursor: pointer;
+    left: 1vw;
 }

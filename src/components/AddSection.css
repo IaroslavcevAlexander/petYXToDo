@@ -6,12 +6,24 @@
     top: 20.5vh;
     right:2.2vw;
     border-radius: 10px;
+    transition: 0.5s;
+}
+
+.add_plans.collapsed {
+    width: 93vw;
 }
 
 .add {
     position: fixed;
     top: 23vh;
     left: 23.9vw;
+    transition: 0.5s;
+}
+
+.add.collapsed {
+    position: fixed;
+    top: 23vh;
+    left: 6vw;
     transition: 0.5s;
 }
 
@@ -23,6 +35,17 @@
     position: fixed;
     width: 37vw;
     height: 4vh;
+    top: 23.5vh;
+    right: 26vw;
+    border-color: #646cff;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.plans_input.collapsed {
+    position: fixed;
+    width: 55vw;
+    height: 4.3vh;
     top: 23.5vh;
     right: 26vw;
     border-color: #646cff;

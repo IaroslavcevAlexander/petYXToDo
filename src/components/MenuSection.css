@@ -10,6 +10,23 @@
     top: 8.5vh;
     left: 0.5vw;
     border-radius: 10px;
+    transition: 0.5s;
+}
+
+.menu.collapsed {
+    translate: -90%;
+}
+
+.menu_arrow {
+    position: fixed;
+    right: 9px;
+    top: 4px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.menu_arrow:hover {
+    color: #646cff;
 }
 
 .close {
@@ -66,10 +83,14 @@ hr:hover {
     justify-content: center;
     margin: 0 auto;
     width: 90%;
-    border-color: #646cffaa;
     background-color: #eb84841f;
     bottom: 50px;
     transition: 0.5s;
+}
+
+.create_list:hover {
+    color: #646cffaa;
+    border-color: #646cffaa;
 }
 
 .list:hover {
