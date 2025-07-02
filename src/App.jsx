@@ -1,79 +1,125 @@
 import './App.css'
 import Header from './components/Header'
 import MenuSection from './components/MenuSection'
+import TaskDrawer from './components/TaskDrawer'
 import WorkSpace from './components/WorkSpace'
 import AddSection from './components/AddSection'
 import PlansSection from './components/PlansSection'
 import PrioritySection from './components/PrioritySection'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import TodaySection from './components/TodaySection'
+import CompletedSection from './components/CompletedSection'
 
 function App() {
-  // const updateNote = (index, updates) => {
-  //   setNotes(prev => {
-  //   const newNotes = [...prev];
-  //   newNotes[index] = {
-  //     ...newNotes[index],
-  //     ...updates
-  //   };
-  //   });
-  // };
-
   const [note, setNote] = useState('');
   const [notes, setNotes] = useState([]);
+  const [menuCollapsed, setMenuCollapsed] = useState(false);
+  const [activeTab, setActiveTab] = useState('today');
+  const inputRef = useRef(null);
+
+  const updateNote = (index, updates) => {
+    setNotes(prev => {
+    const newNotes = [...prev];
+    newNotes[index] = {
+      ...newNotes[index],
+      ...updates
+    };
+    return newNotes;
+    });
+  };
 
   const handleAddNote = () => {
     const trimmed = note.trim();
     if (trimmed === '') return;
 
-    setNotes([
-      ...notes,
-      {
+    const newNote = {
         text: trimmed,
         date: new Date().toLocaleDateString(),
-        important: false,
+        important: activeTab === "important",
         completed: false
-      }
-    ]);
+    };
+
+    if (document.activeElement !== inputRef.current) {
+      setTimeout(() => inputRef.current.focus(), 0);
+    }
+
+    setNotes([...notes, newNote]);
     setNote('');
   };
 
-  const toggleComleted = (index) => {
-      const updated = [...notes];
-      updated[index].completed = !updated[index].completed;
-      setNotes(updated)
+  const toggleCompleted = (index) => {
+    updateNote(index,{ completed: !notes[index].completed });
   }
 
   const toggleImportant = (index) => {
-    const updated = [...notes];
-    updated[index].important = !updated[index].important;
-    setNotes(updated);
-  };
+    updateNote(index,{ important: !notes[index].important });
 
-  const [menuCollapsed, setMenuCollapsed] = useState(false);
+  };
 
   return (
     <>
       <Header />
-      <MenuSection collapsed={menuCollapsed} setCollapsed={setMenuCollapsed} />
+      {/* lol */}
+
+      <MenuSection 
+        collapsed={menuCollapsed}
+        setCollapsed={setMenuCollapsed}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
+
+      <TaskDrawer
+        collapsed={menuCollapsed}
+        setCollapsed={setMenuCollapsed}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
+
       <WorkSpace collapsed={menuCollapsed} />
+
       <AddSection 
         note={note}
         setNote={setNote}
         handleAddNote={handleAddNote}
         collapsed={menuCollapsed}
+        inputRef={inputRef}
       />
-      <PlansSection 
+
+      <TodaySection 
         notes={notes} 
-        toggleComleted={toggleComleted} 
+        toggleCompleted={toggleCompleted} 
         toggleImportant={toggleImportant}
         collapsed={menuCollapsed}
+        activeTab={activeTab}
+      />
 
+      <CompletedSection 
+        notes={notes} 
+        toggleCompleted={toggleCompleted}
+        collapsed={menuCollapsed}
+        activeTab={activeTab}
       />
+
+      {activeTab === 'all' && (
+      <PlansSection 
+        notes={notes} 
+        toggleCompleted={toggleCompleted} 
+        toggleImportant={toggleImportant}
+        collapsed={menuCollapsed}
+        activeTab={activeTab}
+      />
+      )}
+
+      {activeTab === 'important' && (
       <PrioritySection 
-      notes={notes} 
-      toggleImportant={toggleImportant}
-     collapsed={menuCollapsed}
+        notes={notes}
+        toggleImportant={toggleImportant}
+        toggleCompleted={toggleCompleted} 
+        collapsed={menuCollapsed}
+        activeTab={activeTab}
       />
+
+      )}
     </>
   );
 }

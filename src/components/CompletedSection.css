@@ -1,0 +1,35 @@
+.completed {
+    position: fixed;
+    background-color: #ffffff25;
+    width: 75vw;
+    height: 59vh;
+    top: 33vh;
+    right:2.2vw;
+    border-radius: 10px;
+    overflow-y: scroll;
+    white-space: normal;
+    word-wrap: break-word;
+    padding-top: 5vh;
+    transition: 0.5s;
+}
+
+.completed.collapsed {
+    width: 93vw;
+    height: 59vh;
+}
+
+.return-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background-color: #646cff70;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    padding: 2px 6px;
+    cursor: pointer;
+    left: 1vw;
+}

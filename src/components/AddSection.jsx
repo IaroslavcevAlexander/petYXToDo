@@ -1,6 +1,6 @@
 import './AddSection.css'
 
-const AddSection = ({note, setNote, handleAddNote, collapsed}) => {
+const AddSection = ({note, setNote, handleAddNote, collapsed, inputRef}) => {
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             handleAddNote();
@@ -16,6 +16,7 @@ const AddSection = ({note, setNote, handleAddNote, collapsed}) => {
                     type="text" 
                     placeholder='И что ты там удумал?'
                     value={note}
+                    ref={inputRef}
                     onChange={(e) => {
                         const value = e.target.value;
                         const formatted = value.charAt(0).toUpperCase() + value.slice(1);

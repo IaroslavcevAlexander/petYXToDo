@@ -1,13 +1,12 @@
 .plans {
-    /* display: none; */
     position: fixed;
-    background-color: #ffffff1c;
+    background-color: #ffffff25;
     width: 75vw;
     height: 59vh;
     top: 33vh;
     right:2.2vw;
     border-radius: 10px;
-    overflow: auto;
+    overflow-y: scroll;
     white-space: normal;
     word-wrap: break-word;
     padding-top: 5vh;
@@ -15,27 +14,22 @@
 }
 
 .plans.collapsed {
-    width: 93vw !important;
+    width: 93vw;
 }
 
-.planss {
+.planss{
     position: fixed;
+    background-color: #0d0d0d;
     width: 74vw;
-    background-color: #272727;
-    top: 33vh;
-    right:3.vw;
+    height: 4.5vh;
+    top: 15.81vw;
     border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    overflow: auto;
-    white-space: normal;
-    word-wrap: break-word;
-    padding-top: 5vh;
-    z-index: 50;
     transition: 0.5s;
+    z-index: 100;
 }
 
-.planss.collapsed {
-    width: 91.9vw;
+.planss.collapsed{
+    width: 92vw;
 }
 
 .tasks {
@@ -139,3 +133,8 @@
     cursor: pointer;
     left: 1vw;
 }
+ .empty {
+    position: relative;
+    top: 10vh;
+    font-size: 20px;
+ }

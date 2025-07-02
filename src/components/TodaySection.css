@@ -1,4 +1,4 @@
-.priority-plans {
+.today {
     position: fixed;
     background-color: #ffffff25;
     width: 75vw;
@@ -13,6 +13,7 @@
     transition: 0.5s;
 }
 
-.priority-plans.collapsed {
+.today.collapsed {
     width: 93vw;
+    height: 59vh;
 }

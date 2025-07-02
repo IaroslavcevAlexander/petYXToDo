@@ -13,6 +13,11 @@
     transition: 0.5s;
 }
 
+.menu_item.active {
+    color: #646cff;
+    font-weight: bold;
+}
+
 .menu.collapsed {
     translate: -90%;
 }

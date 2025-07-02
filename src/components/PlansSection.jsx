@@ -1,6 +1,18 @@
 import './PlansSection.css'
 
-const PlansSection = ({ notes, toggleComleted, toggleImportant, collapsed  }) => {
+const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab }) => {
+    const today = new Date().toLocaleDateString();
+
+    if (!["all", "today", "important"].includes(activeTab)) return null;
+
+    const filtered = notes
+        .map((note, index) => ({ note, index }))
+        .filter(({ note }) => {
+            if (activeTab === "important") return note.important;
+            if (activeTab === "today") return note.date === today;
+            return true;
+    });
+
     return (
         <>
             <div className={`plans ${collapsed ? 'collapsed' : ''}`}>
@@ -10,25 +22,29 @@ const PlansSection = ({ notes, toggleComleted, toggleImportant, collapsed  }) =>
                     <h6 className='importace'>Важность</h6>
                 </div>
 
-                {notes.map((note, index) => (
-                    <div className='task' key={index}>
-                        <div className="task-text">{note.text}</div>
-                        <div className="task-header">
-                            <span className="task-date">{note.date}</span>
-                            <button className='task-priority' 
-                                    onClick={() => toggleImportant(index)}
-                            >
-                                {note.important ? "!" : ""}
-                            </button>
-                            <button
-                                className={`task-done ${note.completed ? 'done' : ''}`}
-                                onClick={() => toggleComleted(index)}
-                            >
-                                {note.completed ? "✓" : "✗"}
-                            </button>
+                {filtered.length === 0 ? (
+                    <div className="empty">Задач пока нет</div>
+                ) : (
+                    filtered.map(({note, index}) => (
+                        <div className='task' key={index}>
+                            <div className="task-text">{note.text}</div>
+                            <div className="task-header">
+                                <span className="task-date">{note.date}</span>
+                                <button className='task-priority' 
+                                        onClick={() => toggleImportant(index)}
+                                >
+                                    {note.important ? "!" : ""}
+                                </button>
+                                <button
+                                    className={`task-done ${note.completed ? 'done' : ''}`}
+                                    onClick={() => toggleCompleted(index)}
+                                >
+                                    {note.completed ? "✓" : "✗"}
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))
+                )}
             </div>
         </>
     );

@@ -21,7 +21,7 @@ const WorkSpace = ({ collapsed }) => {
     return (
         <div className={`big ${collapsed ? 'collapsed' : ''}`}>
           <div className={`data ${collapsed ? 'collapsed' : ''}`}>
-              <h1 className={`today ${collapsed ? 'collapsed' : ''}`}>Сегодня</h1>
+              <h1 className={`today-title ${collapsed ? 'collapsed' : ''}`}>Сегодня</h1>
               {formattedDate}
           </div>
           <div className="mode">
