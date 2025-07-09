@@ -5,7 +5,7 @@ const TodaySection = ({notes, toggleCompleted, toggleImportant, collapsed, activ
 
     const todayNotes = notes
         .map((note, index) => ({ note, index }))
-        .filter(({ note }) => note.date === today);
+        .filter(({ note }) => note.date === today && !note.completed);
         
     if (activeTab !== "today") return null;
 
@@ -22,7 +22,7 @@ const TodaySection = ({notes, toggleCompleted, toggleImportant, collapsed, activ
                     <div className="empty">Сегодня задачи не были добавлины</div>
                 ) : (
                     todayNotes.map(({ note, index}) => (
-                        <div className="task" key={index}>
+                        <div className={` task ${note.important ? 'important' : ''}`} key={index}>
                             <div className="task-text">{note.text}</div>
                             <div className="task-header">
                                 <span className="task-date">{note.date}</span>

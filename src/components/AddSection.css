@@ -5,7 +5,7 @@
     background-color: #ffffff1c;
     top: 20.5vh;
     right:2.2vw;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
     transition: 0.5s;
 }
 

@@ -3,13 +3,13 @@
     background-color: #ffffff25;
     width: 75vw;
     height: 59vh;
-    top: 33vh;
+    top: 37vh;
     right:2.2vw;
-    border-radius: 10px;
+    border-radius: 0 0 0 10px;
     overflow-y: scroll;
     white-space: normal;
     word-wrap: break-word;
-    padding-top: 5vh;
+    padding-top: 1vh;
     transition: 0.5s;
 }
 
@@ -20,16 +20,15 @@
 .planss{
     position: fixed;
     background-color: #313131;
-    width: 74vw;
+    width: 75vw;
     height: 4.5vh;
-    top: 15.81vw;
-    border-top-left-radius: 10px;
+    top: 15.35vw;
     transition: 0.5s;
     z-index: 100;
 }
 
 .planss.collapsed{
-    width: 92vw;
+    width: 93vw;
 }
 
 .tasks {
@@ -37,7 +36,7 @@
     font-size: 14px;
     font-weight: 90;
     transform: scaleX(1.5);
-    top: 29vh;
+    top: 28vh;
     left: 28vw;
     margin-right: 5vw;
     transition: 0.5s;
@@ -52,7 +51,7 @@
     font-size: 14px;
     font-weight: 90;
     transform: scaleX(1.5);
-    top: 29vh;
+    top: 28vh;
     left: 80vw;
     margin-right: 5vw;
 }
@@ -62,21 +61,9 @@
     font-size: 14px;
     font-weight: 90;
     transform: scaleX(1.5);
-    top: 29vh;
+    top: 28vh;
     left: 92vw;
     margin-right: 5vw;
-}
-
-.task {
-    display: flex;
-    align-items: center;
-    height: 5vh;
-    gap: 10px;
-    border: 0.1px solid #cccccc47; 
-    border-radius: 10px;
-    margin: 0 5px 5px 5px; 
-    padding: 0 25vw 0 4vw;
-    background-color: #646cff1b;
 }
 
 .task-header {
@@ -106,7 +93,7 @@
     border-radius: 10px;
     padding: 2px 6px;
     cursor: pointer;
-    right: 3vw;
+    right: 1vw;
 }
 
 .task-text {

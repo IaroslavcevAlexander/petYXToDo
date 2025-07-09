@@ -8,9 +8,9 @@ const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, acti
     const filtered = notes
         .map((note, index) => ({ note, index }))
         .filter(({ note }) => {
-            if (activeTab === "important") return note.important;
-            if (activeTab === "today") return note.date === today;
-            return true;
+            if (activeTab === "important") return note.important && !note.completed;
+            if (activeTab === "today") return note.date === today && !note.completed;
+            return true && !note.completed;
     });
 
     return (
@@ -26,7 +26,7 @@ const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, acti
                     <div className="empty">Задач пока нет</div>
                 ) : (
                     filtered.map(({note, index}) => (
-                        <div className='task' key={index}>
+                        <div className={` task ${note.important ? 'important' : ''}`} key={index}>
                             <div className="task-text">{note.text}</div>
                             <div className="task-header">
                                 <span className="task-date">{note.date}</span>

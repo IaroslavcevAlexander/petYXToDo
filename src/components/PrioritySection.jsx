@@ -5,7 +5,7 @@ const PrioritySection = ({ notes, toggleCompleted, toggleImportant, collapsed, a
 
     const importantNotes = notes
         .map((note, index) => ({ note, index }))
-        .filter(({ note }) => note.important);
+        .filter(({ note }) => note.important && !note.completed);
  
     return (
         <>
@@ -20,7 +20,7 @@ const PrioritySection = ({ notes, toggleCompleted, toggleImportant, collapsed, a
                     <div className="empty">Важных задачь нет</div>
                 ) : (
                     importantNotes.map(({note, index}) => (
-                        <div className="task" key={index}>
+                        <div className={` task ${note.important ? 'important' : ''}`} key={index}>
                             <div className='task-text'>{note.text}</div>
                             <div className="task-header">
                                 <span className="task-date">{note.date}</span>

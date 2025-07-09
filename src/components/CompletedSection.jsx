@@ -1,11 +1,11 @@
 import './CompletedSection.css';
 
-const CompletedSection = ({notes, toggleCompleted, collapsed, activeTab}) => {
+const CompletedSection = ({notes, toggleCompleted, collapsed, activeTab, handleMarkAsDeleted}) => {
     if (activeTab !== 'done') return null;
 
     const filtered = notes
         .map((note, index) => ({ note, index}))
-        .filter(({ note}) => note.completed);
+        .filter(({ note }) => note.completed && !note.deleted);
 
     return(
         <>
@@ -19,7 +19,7 @@ const CompletedSection = ({notes, toggleCompleted, collapsed, activeTab}) => {
                     <div className="empty">Нет выполненных задач</div>
                 ) : (
                     filtered.map(({note, index}) => (
-                        <div className='task' key={index}>
+                        <div className={` task ${note.important ? 'important' : ''}`} key={index}>
                             <div className="task-text">{note.text}</div>
                             <div className="task-header">
                                 <span className="task-date">{note.date}</span>
@@ -30,6 +30,7 @@ const CompletedSection = ({notes, toggleCompleted, collapsed, activeTab}) => {
                                 >
                                     ↩
                                 </button>
+                                <button className="delete" onClick={() => handleMarkAsDeleted(index)}>❌</button>
                             </div>
                         </div>
                     ))

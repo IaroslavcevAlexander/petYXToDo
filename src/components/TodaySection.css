@@ -3,13 +3,13 @@
     background-color: #ffffff25;
     width: 75vw;
     height: 59vh;
-    top: 33vh;
+    top: 37vh;
     right:2.2vw;
-    border-radius: 10px;
+    border-radius: 0 0 0 10px;
     overflow-y: scroll;
     white-space: normal;
     word-wrap: break-word;
-    padding-top: 5vh;
+    padding-top: 1vh;
     transition: 0.5s;
 }
 

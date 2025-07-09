@@ -29,7 +29,7 @@ const MenuSection = ({ collapsed, setCollapsed, activeTab, setActiveTab  }) => {
                     onClick={() => handleTabClick('important')}
                     title='важное'>Важное
                 </li>
-                
+
                 <li 
                     className={`menu_item ${activeTab === 'done' ? 'active' : ''}`}
                     id='menu_item_4' 
@@ -43,6 +43,14 @@ const MenuSection = ({ collapsed, setCollapsed, activeTab, setActiveTab  }) => {
                     onClick={() => handleTabClick('all')}
                     title='задачи'>Задачи
                 </li>
+
+                <li 
+                    className={`menu_item ${activeTab === 'deleted' ? 'active' : ''}`} 
+                    id='menu_item_6' 
+                    onClick={() => handleTabClick('deleted')}
+                    title='задачи'>Удаленные
+                </li>
+
             </ul>
             <hr />
             <button className='create_list'>Создать список</button>
