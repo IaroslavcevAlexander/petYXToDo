@@ -1,6 +1,6 @@
 import './TodaySection.css'
 
-const TodaySection = ({notes, toggleCompleted, toggleImportant, collapsed, activeTab}) => {
+const TodaySection = ({notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode }) => {
     const today = new Date().toLocaleDateString();
 
     const todayNotes = notes
@@ -11,7 +11,7 @@ const TodaySection = ({notes, toggleCompleted, toggleImportant, collapsed, activ
 
     return (
         <>
-            <div className={`today ${collapsed ? 'collapsed' : ''}`}>
+            <div className={`today ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
                 <div className={`planss ${collapsed ? 'collapsed' : ''}`}>
                     <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задачa:</h6>
                     <h6 className='date-completion'>Дата</h6>

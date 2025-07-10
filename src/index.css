@@ -70,14 +70,14 @@ button:focus-visible {
 
 
 /* bg-gradient-animation */
-/* 
-.wave-gradient {
+
+/* .wave-gradient {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle at bottom left, #ff0000c9, transparent 70%);
+  background: radial-gradient(circle at bottom left, #ff1a1a97, transparent 70%);
   background-size: 200% 200%;
   background-repeat: no-repeat;
   animation: moveWaves 10s linear infinite;
@@ -94,37 +94,6 @@ button:focus-visible {
 } */
 
 
-/* 
-.wave-gradient {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  background: repeating-linear-gradient(
-    45deg,
-    #ff0000 0,
-    #0022ff 5px,
-    #1aff00 10px,
-    transparent 10px,
-    transparent 20px
-  );
-
-  background-size: 100% 100%;
-  animation: waveMove 15s linear infinite;
-  z-index: -1;
-  opacity: 0.9;
-}
-
-@keyframes waveMove {
-  0% {
-    background-position: 0% 100%;
-  }
-  100% {
-    background-position: 100% 0%;
-  }
-} */
 
 
 .wave-gradient {
@@ -135,15 +104,15 @@ button:focus-visible {
   height: 100vh;
 
   background: repeating-linear-gradient(
-    45deg,
-    #1e00ff 0,
-    #5411ff 1px,
+    -135deg,
+    #8400ff 0,
+    #ffffff 1px,
     transparent 100px,
-    transparent 50px    
+    transparent 50px
   );
 
   background-size: 200% 200%;
-  animation: waveMoveReverse 200s linear infinite;
+  animation: waveMoveReverse 150s linear infinite;
   z-index: -1;
   opacity: 0.1;
 }

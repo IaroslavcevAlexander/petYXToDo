@@ -17,3 +17,60 @@
     width: 93vw;
     height: 59vh;
 }
+
+
+
+.today.grid-view {
+  display: flex;
+  height: 63vh;
+  top: 33vh;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.today.grid-view .planss {
+    display: none;
+}
+
+.today.grid-view .task {
+    display: flex;
+    position: relative;
+    width: 20vw;
+    padding: 5vh;
+    background-color: #ffffff22;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.today.grid-view .task-text {
+    position: absolute;
+    font-size: 15px;
+    left: 5px;
+    top: 2px;
+    max-width: 18.9vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.today.grid-view .task-date {
+    position: relative;
+    font-size: 15px;
+    bottom: -20px;
+    left: 5vw;
+}
+
+.today.grid-view .task-done {
+    bottom: 5px;
+    left: 5px;
+}
+
+.today.grid-view .task-priority {
+    bottom: 5px;
+    right: 5px;
+}
+
+.task.important {
+  background-color: #3b40a7 !important;
+}

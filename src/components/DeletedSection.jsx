@@ -1,12 +1,12 @@
 import './DeletedSection.css'
 
-const DeletedSection = ({ notes, handleRestore, handleDeleteNote, collapsed, activeTab }) => {
+const DeletedSection = ({ notes, handleRestore, handleDeleteNote, collapsed, activeTab, viewMode }) => {
   if (activeTab !== 'deleted') return null; 
 
   const deletedNotes = notes.filter(note => note.deleted); 
 
   return (
-    <div className={`deleted-section ${collapsed ? 'collapsed' : ''}`}>
+    <div className={`deleted-section ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
       <div className={`planss ${collapsed ? 'collapsed' : ''}`}>
           <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задачa:</h6>
           <h6 className='date-completion'>Дата</h6>

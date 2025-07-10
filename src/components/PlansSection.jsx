@@ -1,6 +1,6 @@
 import './PlansSection.css'
 
-const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab }) => {
+const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode }) => {
     const today = new Date().toLocaleDateString();
 
     if (!["all", "today", "important"].includes(activeTab)) return null;
@@ -10,12 +10,12 @@ const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, acti
         .filter(({ note }) => {
             if (activeTab === "important") return note.important && !note.completed;
             if (activeTab === "today") return note.date === today && !note.completed;
-            return true && !note.completed;
+            return !note.completed;
     });
 
     return (
         <>
-            <div className={`plans ${collapsed ? 'collapsed' : ''}`}>
+            <div className={`plans ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
                 <div className={`planss ${collapsed ? 'collapsed' : ''}`}>
                     <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задачa:</h6>
                     <h6 className='date-completion'>Дата</h6>

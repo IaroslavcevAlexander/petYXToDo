@@ -1,6 +1,6 @@
 import './CompletedSection.css';
 
-const CompletedSection = ({notes, toggleCompleted, collapsed, activeTab, handleMarkAsDeleted}) => {
+const CompletedSection = ({notes, toggleCompleted, collapsed, activeTab, handleMarkAsDeleted, viewMode}) => {
     if (activeTab !== 'done') return null;
 
     const filtered = notes
@@ -9,7 +9,7 @@ const CompletedSection = ({notes, toggleCompleted, collapsed, activeTab, handleM
 
     return(
         <>
-            <div className={`completed ${collapsed ? 'collapsed' : ''}`}>
+            <div className={`completed ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
                 <div className={`planss ${collapsed ? 'collapsed' : ''}`}>
                     <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задачa:</h6>
                     <h6 className='date-completion'>Дата</h6>

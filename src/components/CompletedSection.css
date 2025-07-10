@@ -33,3 +33,54 @@
     cursor: pointer;
     left: 1vw;
 }
+
+.completed.grid-view {
+  display: flex;
+  height: 63vh;
+  top: 33vh;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.completed.grid-view .planss {
+    display: none;
+}
+
+.completed.grid-view .task {
+    display: flex;
+    position: relative;
+    width: 20vw;
+    padding: 5vh;
+    background-color: #ffffff22;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.completed.grid-view .task-text {
+    position: absolute;
+    font-size: 15px;
+    left: 5px;
+    top: 2px;
+    max-width: 18.9vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.completed.grid-view .task-date {
+    position: relative;
+    font-size: 15px;
+    bottom: -20px;
+    left: 5vw;
+}
+
+.completed.grid-view .return-btn {
+    bottom: 5px;
+    left: 5px;
+}
+
+.completed.grid-view .delete {
+    bottom: 5px;
+    right: 5px;
+}

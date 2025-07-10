@@ -1,6 +1,6 @@
 import './PrioritySection.css'
 
-const PrioritySection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab }) => {
+const PrioritySection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode }) => {
     if (activeTab !== "important") return null;
 
     const importantNotes = notes
@@ -9,7 +9,7 @@ const PrioritySection = ({ notes, toggleCompleted, toggleImportant, collapsed, a
  
     return (
         <>
-            <div className={`priority-plans ${collapsed ? 'collapsed' : ''}`}>
+            <div className={`priority-plans ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
                 <div className={`planss ${collapsed ? 'collapsed' : ''}`}>
                     <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задачa:</h6>
                     <h6 className='date-completion'>Дата</h6>

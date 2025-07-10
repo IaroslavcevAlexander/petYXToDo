@@ -16,3 +16,60 @@
 .priority-plans.collapsed {
     width: 93vw;
 }
+
+
+
+.priority-plans.grid-view {
+  display: flex;
+  height: 63vh;
+  top: 33vh;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.priority-plans.grid-view .planss {
+    display: none;
+}
+
+.priority-plans.grid-view .task {
+    display: flex;
+    position: relative;
+    width: 20vw;
+    padding: 5vh;
+    background-color: #ffffff22;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.priority-plans.grid-view .task-text {
+    position: absolute;
+    font-size: 15px;
+    left: 5px;
+    top: 2px;
+    max-width: 18.9vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.priority-plans.grid-view .task-date {
+    position: relative;
+    font-size: 15px;
+    bottom: -20px;
+    left: 5vw;
+}
+
+.priority-plans.grid-view .task-done {
+    bottom: 5px;
+    left: 5px;
+}
+
+.priority-plans.grid-view .task-priority {
+    bottom: 5px;
+    right: 5px;
+}
+
+.priority-plans.important {
+  background-color: #3b40a7 !important;
+}

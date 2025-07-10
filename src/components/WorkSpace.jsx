@@ -1,7 +1,7 @@
 import './WorkSpace.css'
 import { useState, useEffect } from 'react';
 
-const WorkSpace = ({ collapsed }) => {
+const WorkSpace = ({ collapsed, setViewMode, viewMode }) => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -25,8 +25,8 @@ const WorkSpace = ({ collapsed }) => {
               {formattedDate}
           </div>
           <div className="mode">
-              <button className="net" title='сетка'>Сетка</button>
-              <button className="list_mode" title='список'>Список</button>
+              <button className={`list_mode ${viewMode === 'list' ? 'active' : ''}`}  onClick={() => setViewMode('list')} title='список'>Список</button>
+              <button className={`net_mode ${viewMode === 'grid' ? 'active' : ''}`}onClick={() => setViewMode('grid')} title='сетка'>Сетка</button>
           </div>
         </div>
     );

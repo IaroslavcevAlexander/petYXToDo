@@ -17,12 +17,36 @@ function App() {
     const saved = localStorage.getItem('notes');
     return saved ? JSON.parse(saved) : [];
   });
-  const [menuCollapsed, setMenuCollapsed] = useState(false);
-  const [activeTab, setActiveTab] = useState('today');
+  const [menuCollapsed, setMenuCollapsed] = useState(() => {
+    const saved = localStorage.getItem('menuCollapsed');
+    return saved ? JSON.parse(saved) : false;
+  });
+  useEffect(() => {
+    localStorage.setItem('menuCollapsed', JSON.stringify(menuCollapsed))
+  }, [menuCollapsed]);
+
+  const [activeTab, setActiveTab] = useState(() => {
+    const saved = localStorage.getItem('activeTab');
+    return saved ? JSON.parse(saved) : 'today';
+  });
+  useEffect(() => {
+    localStorage.setItem('activeTab', JSON.stringify(activeTab));
+  }, [activeTab]);
+
   const inputRef = useRef(null);
   useEffect(() => {
     localStorage.setItem('notes', JSON.stringify(notes));
+    
   }, [notes]);
+
+  const [viewMode, setViewMode] = useState(() => {
+    const saved = localStorage.getItem('viewMode');
+    return saved ? JSON.parse(saved) : 'list';
+  });
+  useEffect(() => {
+    localStorage.setItem('viewMode', JSON.stringify(viewMode));
+
+  }, [viewMode]);
 
 
   const updateNote = (index, updates) => {
@@ -103,7 +127,7 @@ function App() {
   return (
     <>
 
-      <div class="wave-gradient"></div>
+      <div className="wave-gradient"></div>
 
       <Header />
       {/* lol */}
@@ -122,7 +146,10 @@ function App() {
         setActiveTab={setActiveTab}
       />
 
-      <WorkSpace collapsed={menuCollapsed} />
+      <WorkSpace collapsed={menuCollapsed} 
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+      />
 
       <AddSection 
         note={note}
@@ -138,6 +165,7 @@ function App() {
         toggleImportant={toggleImportant}
         collapsed={menuCollapsed}
         activeTab={activeTab}
+        viewMode={viewMode}
       />
 
       <CompletedSection 
@@ -146,6 +174,7 @@ function App() {
         collapsed={menuCollapsed}
         activeTab={activeTab}
         handleMarkAsDeleted={handleMarkAsDeleted}
+        viewMode={viewMode}
       />
 
       {activeTab === 'all' && (
@@ -155,6 +184,7 @@ function App() {
         toggleImportant={toggleImportant}
         collapsed={menuCollapsed}
         activeTab={activeTab}
+        viewMode={viewMode}
       />
       )}
 
@@ -165,6 +195,7 @@ function App() {
         toggleCompleted={toggleCompleted} 
         collapsed={menuCollapsed}
         activeTab={activeTab}
+        viewMode={viewMode}
       />
       )}
 
@@ -175,6 +206,7 @@ function App() {
           handleDeleteNote={handleDeleteNote}
           collapsed={menuCollapsed}
           activeTab={activeTab}
+          viewMode={viewMode}
         />
       )}
     </>

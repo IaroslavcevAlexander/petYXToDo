@@ -46,7 +46,7 @@
     right: 2.2vw;
 }
 
-.net {
+.net_mode {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +56,8 @@
     color: rgba(255, 255, 255, 0.87);
     transition: 0.5s;
 }
-.net:hover {
+
+.net_mode:hover {
     color: #646cff;
 }
 
@@ -70,6 +71,17 @@
     color: rgba(255, 255, 255, 0.87);
     transition: 0.5s;
 }
+
 .list_mode:hover {
     color: #646cff;
+}
+
+button.active {
+  color: #acb1ff;
+  border-color: #646cff;
+  border-radius: 8px;
+}
+
+button:focus {
+  outline: none;
 }
