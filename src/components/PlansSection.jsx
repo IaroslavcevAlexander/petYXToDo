@@ -1,6 +1,6 @@
 import './PlansSection.css'
 
-const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode }) => {
+const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode, setSelectedIndex, setDrawerCollapsed }) => {
     const today = new Date().toLocaleDateString();
 
     if (!["all", "today", "important"].includes(activeTab)) return null;
@@ -26,8 +26,13 @@ const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, acti
                     <div className="empty">Задач пока нет</div>
                 ) : (
                     filtered.map(({note, index}) => (
-                        <div className={` task ${note.important ? 'important' : ''}`} key={index}>
-                            <div className="task-text">{note.text}</div>
+                        <div key={index} className={`task ${note.important ? 'important' : ''}`}>
+                            <div className="task-text"
+                                onClick={() => {
+                                setSelectedIndex(index);
+                                setDrawerCollapsed(false);
+                                }} key={index}>
+                            {note.text}</div>
                             <div className="task-header">
                                 <span className="task-date">{note.date}</span>
                                 <button className='task-priority' 

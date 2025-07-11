@@ -1,0 +1,41 @@
+.settings {
+    /* display: none; */
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20vw;
+    height: auto;
+    left: 40vw;
+    top: 15vh;
+    border-color: #ff1e1ec4;
+    background-color: #3b40a7ee;
+    z-index: 2;
+}
+
+.h3 {
+    cursor: default;
+}
+
+.setting {
+    font-size: 16.5px;
+    transition: 0.5s;
+}
+
+.setting:hover {
+    color: #000;
+}
+
+.closer-settings {
+    position: fixed;
+    font-size: 25px;
+    transition: 0.5s; 
+    margin-left: 18.5vw;
+    top: 13.5vh;
+    cursor: pointer;
+}
+
+.closer-settings:hover {
+    color: #000000;
+
+}

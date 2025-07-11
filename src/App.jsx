@@ -10,6 +10,7 @@ import { useRef, useState, useEffect } from 'react'
 import TodaySection from './components/TodaySection'
 import CompletedSection from './components/CompletedSection'
 import DeletedSection from './components/DeletedSection';
+import Settings from './components/Settings';
 
 function App() {
   const [note, setNote] = useState('');
@@ -17,6 +18,14 @@ function App() {
     const saved = localStorage.getItem('notes');
     return saved ? JSON.parse(saved) : [];
   });
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes));
+    
+  }, [notes]);
+
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+
   const [menuCollapsed, setMenuCollapsed] = useState(() => {
     const saved = localStorage.getItem('menuCollapsed');
     return saved ? JSON.parse(saved) : false;
@@ -24,6 +33,8 @@ function App() {
   useEffect(() => {
     localStorage.setItem('menuCollapsed', JSON.stringify(menuCollapsed))
   }, [menuCollapsed]);
+
+  const [drawerCollapsed, setDrawerCollapsed] = useState(true);
 
   const [activeTab, setActiveTab] = useState(() => {
     const saved = localStorage.getItem('activeTab');
@@ -34,10 +45,6 @@ function App() {
   }, [activeTab]);
 
   const inputRef = useRef(null);
-  useEffect(() => {
-    localStorage.setItem('notes', JSON.stringify(notes));
-    
-  }, [notes]);
 
   const [viewMode, setViewMode] = useState(() => {
     const saved = localStorage.getItem('viewMode');
@@ -126,8 +133,9 @@ function App() {
 
   return (
     <>
-
       <div className="wave-gradient"></div>
+      
+      <Settings />
 
       <Header />
       {/* lol */}
@@ -140,10 +148,15 @@ function App() {
       />
 
       <TaskDrawer
-        collapsed={menuCollapsed}
         setCollapsed={setMenuCollapsed}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        selectedIndex={selectedIndex}
+        drawerCollapsed={drawerCollapsed}
+        setDrawerCollapsed={setDrawerCollapsed}
+        toggleImportant={toggleImportant}
+        toggleCompleted={toggleCompleted} 
+        notes={notes}
       />
 
       <WorkSpace collapsed={menuCollapsed} 
@@ -166,6 +179,8 @@ function App() {
         collapsed={menuCollapsed}
         activeTab={activeTab}
         viewMode={viewMode}
+        setSelectedIndex={setSelectedIndex}
+        setDrawerCollapsed={setDrawerCollapsed}
       />
 
       <CompletedSection 
@@ -175,6 +190,8 @@ function App() {
         activeTab={activeTab}
         handleMarkAsDeleted={handleMarkAsDeleted}
         viewMode={viewMode}
+        setSelectedIndex={setSelectedIndex}
+        setDrawerCollapsed={setDrawerCollapsed}
       />
 
       {activeTab === 'all' && (
@@ -185,6 +202,8 @@ function App() {
         collapsed={menuCollapsed}
         activeTab={activeTab}
         viewMode={viewMode}
+        setSelectedIndex={setSelectedIndex}
+        setDrawerCollapsed={setDrawerCollapsed}
       />
       )}
 
@@ -196,6 +215,8 @@ function App() {
         collapsed={menuCollapsed}
         activeTab={activeTab}
         viewMode={viewMode}
+        setSelectedIndex={setSelectedIndex}
+        setDrawerCollapsed={setDrawerCollapsed}
       />
       )}
 

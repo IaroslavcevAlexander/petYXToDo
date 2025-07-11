@@ -3,12 +3,116 @@
     display: flex; 
     flex-direction: column;
     justify-content: space-between;
-    width: 20vw;
-    height: 90vh;
+    width: 25vw;
+    height: 89vh;
     margin: 0 auto;
-    background-color: #000000ac;
+    background-color: #00010c;
     top: 8.5vh;
-    left: 0.5vw;
     border-radius: 10px;
-    transition: 0.5s;
+    transition: 0.1s;
+    z-index: 100;
+    overflow-y: scroll;
 }
+
+.drawer-header {
+    position: fixed;
+    width: 23.9vw;
+    cursor: move;
+    font-weight: bold;
+    user-select: none;
+    font-size: 15px;
+    padding: 5px 0 0 0;
+    background-color: #000000;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.task-full-text {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 25px 15px 20vh 15px;
+}
+
+
+.menu_arrow_driver {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    top: 0.8vh;
+    left: 0.6vw;
+}
+
+.menu_arrow_driver:hover {
+    color: #646cff;
+    cursor: pointer;
+}
+
+.close_driver {
+    position: fixed;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    cursor: move;
+    font-size: 25px;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    margin-left: 21.9vw;
+    margin-top: -1vh;
+}
+
+.close_driver:hover {
+    color: #646cff;
+    cursor: pointer;
+}
+
+.actions {
+    position: fixed;
+    width: 23.9vw;
+    font-size: 15px;
+    padding: 5px 0 0 0;
+    background-color: #000000d3;
+    margin-top: 70vh;
+    border-radius: 8px;
+}
+
+ .drawer-btn-0 {
+    width: 15vw;
+    height: 8vh;
+    font-size: 15px;
+    margin-bottom: 1vh;
+    transition: all 0.5s;
+    border-color: rgba(0, 136, 255, 0.192);
+}
+
+.drawer-btn-0:hover { 
+    color: #646cff;
+ }
+
+.drawer-btn-1 {
+    width: 15vw;
+    height: 8vh;
+    font-size: 15px;
+    margin-bottom: 1vh;
+    transition: all 0.5s;
+    border-color: rgba(0, 136, 255, 0.192);
+}
+
+.drawer-btn-1:hover { 
+color: #646cff;
+}
+
+/* .resize-handle {
+position: absolute;
+width: 16px;
+height: 16px;
+bottom: 0;
+left: 0;
+cursor: sw-resize;
+background: #646cff;
+z-index: 10;
+} */

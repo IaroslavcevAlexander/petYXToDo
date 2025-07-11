@@ -1,6 +1,6 @@
 import './PrioritySection.css'
 
-const PrioritySection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode }) => {
+const PrioritySection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode, setSelectedIndex, setDrawerCollapsed  }) => {
     if (activeTab !== "important") return null;
 
     const importantNotes = notes
@@ -21,7 +21,12 @@ const PrioritySection = ({ notes, toggleCompleted, toggleImportant, collapsed, a
                 ) : (
                     importantNotes.map(({note, index}) => (
                         <div className={` task ${note.important ? 'important' : ''}`} key={index}>
-                            <div className='task-text'>{note.text}</div>
+                            <div className='task-text'
+                                onClick={() => {
+                                setSelectedIndex(index);
+                                setDrawerCollapsed(false);
+                                }}key={index}
+                            >{note.text}</div>
                             <div className="task-header">
                                 <span className="task-date">{note.date}</span>
                                 <button className='task-priority' 

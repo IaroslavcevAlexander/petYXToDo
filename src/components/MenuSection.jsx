@@ -31,17 +31,17 @@ const MenuSection = ({ collapsed, setCollapsed, activeTab, setActiveTab  }) => {
                 </li>
 
                 <li 
-                    className={`menu_item ${activeTab === 'done' ? 'active' : ''}`}
-                    id='menu_item_4' 
-                    onClick={() => handleTabClick('done')}
-                    title='Выполненные'>Выполненные
-                </li>
-
-                <li 
                     className={`menu_item ${activeTab === 'all' ? 'active' : ''}`} 
                     id='menu_item_5' 
                     onClick={() => handleTabClick('all')}
                     title='задачи'>Задачи
+                </li>
+
+                <li 
+                    className={`menu_item ${activeTab === 'done' ? 'active' : ''}`}
+                    id='menu_item_4' 
+                    onClick={() => handleTabClick('done')}
+                    title='Выполненные'>Выполненные
                 </li>
 
                 <li 

@@ -1,6 +1,6 @@
 import './CompletedSection.css';
 
-const CompletedSection = ({notes, toggleCompleted, collapsed, activeTab, handleMarkAsDeleted, viewMode}) => {
+const CompletedSection = ({notes, toggleCompleted, collapsed, activeTab, handleMarkAsDeleted, viewMode }) => {
     if (activeTab !== 'done') return null;
 
     const filtered = notes
