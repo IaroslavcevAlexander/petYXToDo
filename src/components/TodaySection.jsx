@@ -13,21 +13,21 @@ const TodaySection = ({notes, toggleCompleted, toggleImportant, collapsed, activ
         <>
             <div className={`today ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
                 <div className={`planss ${collapsed ? 'collapsed' : ''}`}>
-                    <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задачa:</h6>
+                    <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задача:</h6>
                     <h6 className='date-completion'>Дата</h6>
                     <h6 className='importace'>Важность</h6>
                 </div>
 
                 {todayNotes.length === 0 ? (
-                    <div className="empty">Сегодня задачи не были добавлины</div>
+                    <div className="empty">Сегодня задачи не были добавлены</div>
                 ) : (
                     todayNotes.map(({ note, index}) => (
-                        <div className={` task ${note.important ? 'important' : ''}`}>
+                        <div key={note.id} className={` task ${note.important ? 'important' : ''}`}>
                             <div className="task-text"  
                                 onClick={() => {
                                 setSelectedIndex(index);
                                 setDrawerCollapsed(false);
-                                }}key={index}>{note.text}</div>
+                                }}>{note.text}</div>
                             <div className="task-header">
                                 <span className="task-date">{note.date}</span>
                                 <button className='task-priority' onClick={() => toggleImportant(index)}>

@@ -20,13 +20,12 @@ const PrioritySection = ({ notes, toggleCompleted, toggleImportant, collapsed, a
                     <div className="empty">Важных задачь нет</div>
                 ) : (
                     importantNotes.map(({note, index}) => (
-                        <div className={` task ${note.important ? 'important' : ''}`} key={index}>
+                        <div className={` task ${note.important ? 'important' : ''}`} key={note.id}>
                             <div className='task-text'
                                 onClick={() => {
                                 setSelectedIndex(index);
                                 setDrawerCollapsed(false);
-                                }}key={index}
-                            >{note.text}</div>
+                                }}>{note.text}</div>
                             <div className="task-header">
                                 <span className="task-date">{note.date}</span>
                                 <button className='task-priority' 

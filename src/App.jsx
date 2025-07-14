@@ -25,7 +25,6 @@ function App() {
 
   const [selectedIndex, setSelectedIndex] = useState(null);
 
-
   const [menuCollapsed, setMenuCollapsed] = useState(() => {
     const saved = localStorage.getItem('menuCollapsed');
     return saved ? JSON.parse(saved) : false;
@@ -76,7 +75,8 @@ function App() {
         date: new Date().toLocaleDateString(),
         important: activeTab === "important",
         completed: false,
-        deleted: false
+        deleted: false,
+        id: Date.now()
     };
 
     if (document.activeElement !== inputRef.current) {
@@ -131,13 +131,34 @@ function App() {
 
   };
 
+  // header
+
+  const [showSettings, setShowSettings] = useState(false);
+
+  const [bgIndex, setBgIndex] = useState(0);
+
+  const backgrounds = [
+    'wave-gradient',
+    'wave-gradient-1',
+    'wave-gradient-2'
+  ];
+
+  const changeBackground = () => {
+    setBgIndex((prev) => (prev + 1) % backgrounds.length);
+  };
+
   return (
     <>
-      <div className="wave-gradient"></div>
+      <div className={backgrounds[bgIndex]}></div>
       
-      <Settings />
+      {showSettings && <Settings 
+        onClose={() => setShowSettings(false)} 
+        changeBackground={changeBackground} 
+      />} 
 
-      <Header />
+      <Header 
+       setShowSettings={setShowSettings}
+      />
       {/* lol */}
 
       <MenuSection 

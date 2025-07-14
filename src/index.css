@@ -26,7 +26,7 @@ body {
   margin: 0 auto;
   display: flex;
   min-width: 320px;
-  background-color: #adffc7e7;
+  background-color: #adffc7;
 }
 
 h1 {
@@ -71,30 +71,6 @@ button:focus-visible {
 
 /* bg-gradient-animation */
 
-/* .wave-gradient {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: radial-gradient(circle at bottom left, #ff1a1a97, transparent 70%);
-  background-size: 200% 200%;
-  background-repeat: no-repeat;
-  animation: moveWaves 10s linear infinite;
-  z-index: -1;
-}
-
-@keyframes moveWaves {
-  0% {
-    background-position: 0% 100%;
-  }
-  100% {
-    background-position: 100% 0%;
-  }
-} */
-
-
-
 
 .wave-gradient {
   position: fixed;
@@ -105,16 +81,16 @@ button:focus-visible {
 
   background: repeating-linear-gradient(
     -135deg,
-    #8400ff 0,
-    #ffffff 1px,
-    transparent 100px,
-    transparent 50px
+    rgb(255, 0, 0) 1px,
+    rgba(255, 0, 0, 0.733) 1px,
+    rgba(0, 0, 0, 0.507) 100px,
+    rgb(0, 0, 0) 50px
   );
 
   background-size: 200% 200%;
   animation: waveMoveReverse 150s linear infinite;
   z-index: -1;
-  opacity: 0.1;
+  opacity: 0.2;
 }
 
 @keyframes waveMoveReverse {
@@ -124,4 +100,29 @@ button:focus-visible {
   100% {
     background-position: 0% 100%;
   }
+}
+
+
+
+.wave-gradient-1 {
+  background-color: #c0c0c0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+
+.wave-gradient-2 {
+  background-color: #920000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  opacity: 0.5;
 }

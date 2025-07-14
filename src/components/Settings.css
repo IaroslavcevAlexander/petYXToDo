@@ -1,5 +1,15 @@
+.bg-settings {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.651);
+    z-index: 1;
+}
+
+
 .settings {
-    /* display: none; */
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -11,6 +21,8 @@
     border-color: #ff1e1ec4;
     background-color: #3b40a7ee;
     z-index: 2;
+
+    /* display: none; */
 }
 
 .h3 {
@@ -38,4 +50,27 @@
 .closer-settings:hover {
     color: #000000;
 
+}
+
+.about-us {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20vw;
+    min-height: 30vh;
+    left: 40vw;
+    top: 15vh;
+    padding: 0 10px 0 10px;
+    border-color: #ff1e1ec4;
+    background-color: #3b40a7ee;
+    z-index: 2;
+
+
+    display: none;
+}
+
+.about-us-h5 {
+    margin: 10px 0 0 0;
+    font-size: 20px;
 }

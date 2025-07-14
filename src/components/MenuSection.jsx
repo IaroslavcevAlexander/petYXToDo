@@ -53,7 +53,7 @@ const MenuSection = ({ collapsed, setCollapsed, activeTab, setActiveTab  }) => {
 
             </ul>
             <hr />
-            <button className='create_list'>Создать список</button>
+            <button className='create_list'>Не придумал ещё </button>
         </div>
     );
 };

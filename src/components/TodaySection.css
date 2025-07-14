@@ -51,7 +51,7 @@
     max-width: 18.9vw;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
 }
 
 .today.grid-view .task-date {

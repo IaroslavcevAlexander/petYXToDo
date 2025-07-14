@@ -1,6 +1,6 @@
 import './Header.css';
 
-const Header = () => {
+const Header = ({ setShowSettings }) => {
     return (
         <div className="nav">
             <a href="#" className="logo">ToDo</a>
@@ -8,7 +8,7 @@ const Header = () => {
             <a href="#" className="a">Сортировка</a>
             <a href="#" className="a">Группировать</a>
             <a href="#" className="a">Предложения</a>
-            <a href="#" className="a">Настройки</a>
+            <a href="#" className="a" onClick={() => setShowSettings(true)}>Настройки</a>
         </div>
     );
 };
