@@ -18,11 +18,22 @@
     height: auto;
     left: 40vw;
     top: 15vh;
+    border: 1px solid;
     border-color: #ff1e1ec4;
+    border-radius: 4px;
     background-color: #3b40a7ee;
     z-index: 2;
+}
 
-    /* display: none; */
+.setting-all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;  
 }
 
 .h3 {
@@ -54,23 +65,98 @@
 
 .about-us {
     position: fixed;
-    display: flex;
     flex-direction: column;
     align-items: center;
     width: 20vw;
-    min-height: 30vh;
+    min-height: 40vh;
     left: 40vw;
     top: 15vh;
     padding: 0 10px 0 10px;
     border-color: #ff1e1ec4;
     background-color: #3b40a7ee;
     z-index: 2;
+}
 
-
-    display: none;
+.about-us.show {
+    display: flex;
 }
 
 .about-us-h5 {
     margin: 10px 0 0 0;
     font-size: 20px;
+}
+
+
+
+.sign-in {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20vw;
+    min-height: 40vh;
+    left: 40vw;
+    top: 15vh;
+    padding: 0 10px 0 10px;
+    border-color: #ff1e1ec4;
+    background-color: #3b40a7ee;
+    z-index: 2;
+}
+
+.sign-up {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20vw;
+    min-height: 40vh;
+    left: 40vw;
+    top: 15vh;
+    padding: 0 10px 0 10px;
+    border-color: #ff1e1ec4;
+    background-color: #3b40a7ee;
+    z-index: 2;
+}
+
+h5 {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.nickname {
+    margin-bottom: 10px;
+    width: 16vw;
+    height: 5vh;
+    border-radius: 8px;
+    border-color: #646cff;
+    padding: 0 1vw;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.password {
+    margin-bottom: 10px;
+    width: 16vw;
+    height: 5vh;
+    border-radius: 8px;
+    border-color: #646cff;
+    padding: 0 1vw;
+    font-size: 16px;
+}
+
+.sign {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 15px;
+    transition: 0.5s;
+}
+
+.sign:hover {
+    color: #646cff;
+}
+
+input::placeholder {
+    color: #929292;
 }

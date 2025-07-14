@@ -4,7 +4,7 @@ const Header = ({ setShowSettings }) => {
     return (
         <div className="nav">
             <a href="#" className="logo">ToDo</a>
-            <input className='search' type="text" placeholder='Поиск'/>
+            <div className="search-wrapper"><input className='search' type="text" placeholder='Поиск'/></div>
             <a href="#" className="a">Сортировка</a>
             <a href="#" className="a">Группировать</a>
             <a href="#" className="a">Предложения</a>

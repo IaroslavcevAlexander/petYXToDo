@@ -1,5 +1,7 @@
 .nav {
     position: fixed;
+    display: flex;
+    flex-direction: row;
     width: 100vw;
     height: 6vh;
     background-color: #000000ac;
@@ -7,11 +9,12 @@
 }
 
 .logo {
+    display: flex;
+    align-items: center;
     font-size: 25px;
-    height: 6em;
-    padding: 1em;
     will-change: filter;
     transition: filter 300ms;
+    padding-left: 15vw;
 }
 .logo:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
@@ -35,14 +38,25 @@
     }
 }
 
+.search-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .search {
+    align-items: center;
     width: 15vw;
-    height: 3vh;
+    height: 4vh;
     border-radius: 10px;
     border-color: #646cffaa;
+    margin-left: 2vw;
+    padding: 0 1vw;
+    font-size: 1em;
 }
 
 .a {
+    display: flex;
+    align-items: center;
     padding-right: 2.5vw;
     padding-left: 2.5vw;
 }

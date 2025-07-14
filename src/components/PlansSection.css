@@ -19,6 +19,8 @@
 
 .planss{
     position: fixed;
+    display: flex;
+    align-items: center;
     background-color: #313131;
     width: 75vw;
     height: 4.5vh;
@@ -32,12 +34,11 @@
 }
 
 .tasks {
-    position: fixed;
+    display: flex;
     font-size: 14px;
     font-weight: 90;
+    margin-left: 5vw;
     transform: scaleX(1.5);
-    top: 28vh;
-    left: 28vw;
     margin-right: 5vw;
     transition: 0.5s;
 }
@@ -47,22 +48,20 @@
 }
 
 .date-completion {
-    position: fixed;
+    display: flex;
     font-size: 14px;
     font-weight: 90;
+    margin-left: 42.5vw;
     transform: scaleX(1.5);
-    top: 28vh;
-    left: 80vw;
     margin-right: 5vw;
 }
 
 .importace {
-    position: fixed;
+    display: flex;
     font-size: 14px;
     font-weight: 90;
+    margin-left: 6vw;
     transform: scaleX(1.5);
-    top: 28vh;
-    left: 92vw;
     margin-right: 5vw;
 }
 
