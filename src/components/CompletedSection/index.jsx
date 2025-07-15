@@ -1,4 +1,4 @@
-import './CompletedSection.css';
+import './style.css';
 
 const CompletedSection = ({notes, toggleCompleted, collapsed, activeTab, handleMarkAsDeleted, viewMode }) => {
     if (activeTab !== 'done') return null;

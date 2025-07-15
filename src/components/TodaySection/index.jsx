@@ -1,36 +1,36 @@
-import './PrioritySection.css'
+import './style.css'
 
-const PrioritySection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode, setSelectedIndex, setDrawerCollapsed  }) => {
-    if (activeTab !== "important") return null;
+const TodaySection = ({notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode, setSelectedIndex, setDrawerCollapsed }) => {
+    const today = new Date().toLocaleDateString();
 
-    const importantNotes = notes
+    const todayNotes = notes
         .map((note, index) => ({ note, index }))
-        .filter(({ note }) => note.important && !note.completed);
- 
+        .filter(({ note }) => note.date === today && !note.completed);
+        
+    if (activeTab !== "today") return null;
+
     return (
         <>
-            <div className={`priority-plans ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
+            <div className={`today ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
                 <div className={`planss ${collapsed ? 'collapsed' : ''}`}>
-                    <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задачa:</h6>
+                    <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задача:</h6>
                     <h6 className={`date-completion ${collapsed ? 'collapsed' : ''}`}>Дата</h6>
                     <h6 className={`importace ${collapsed ? 'collapsed' : ''}`}>Важность</h6>
                 </div>
 
-                {importantNotes.length === 0 ? (
-                    <div className="empty">Важных задачь нет</div>
+                {todayNotes.length === 0 ? (
+                    <div className="empty">Сегодня задачи не были добавлены</div>
                 ) : (
-                    importantNotes.map(({note, index}) => (
-                        <div className={` task ${note.important ? 'important' : ''}`} key={note.id}>
-                            <div className='task-text'
+                    todayNotes.map(({ note, index}) => (
+                        <div key={note.id} className={` task ${note.important ? 'important' : ''}`}>
+                            <div className="task-text"  
                                 onClick={() => {
                                 setSelectedIndex(index);
                                 setDrawerCollapsed(false);
                                 }}>{note.text}</div>
                             <div className="task-header">
                                 <span className="task-date">{note.date}</span>
-                                <button className='task-priority' 
-                                        onClick={() => toggleImportant(index)}
-                                >
+                                <button className='task-priority' onClick={() => toggleImportant(index)}>
                                     {note.important ? "!" : ""}
                                 </button>
                                 <button
@@ -48,4 +48,4 @@ const PrioritySection = ({ notes, toggleCompleted, toggleImportant, collapsed, a
     );
 };
 
-export default PrioritySection;
+export default TodaySection;

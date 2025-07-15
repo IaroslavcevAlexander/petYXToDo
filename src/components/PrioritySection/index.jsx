@@ -1,38 +1,31 @@
-import './PlansSection.css'
+import './style.css'
 
-const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode, setSelectedIndex, setDrawerCollapsed }) => {
-    const today = new Date().toLocaleDateString();
+const PrioritySection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode, setSelectedIndex, setDrawerCollapsed  }) => {
+    if (activeTab !== "important") return null;
 
-    if (!["all", "today", "important"].includes(activeTab)) return null;
-
-    const filtered = notes
+    const importantNotes = notes
         .map((note, index) => ({ note, index }))
-        .filter(({ note }) => {
-            if (activeTab === "important") return note.important && !note.completed;
-            if (activeTab === "today") return note.date === today && !note.completed;
-            return !note.completed;
-    });
-
+        .filter(({ note }) => note.important && !note.completed);
+ 
     return (
         <>
-            <div className={`plans ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
+            <div className={`priority-plans ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
                 <div className={`planss ${collapsed ? 'collapsed' : ''}`}>
                     <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задачa:</h6>
                     <h6 className={`date-completion ${collapsed ? 'collapsed' : ''}`}>Дата</h6>
                     <h6 className={`importace ${collapsed ? 'collapsed' : ''}`}>Важность</h6>
                 </div>
 
-                {filtered.length === 0 ? (
-                    <div className="empty">Задач пока нет</div>
+                {importantNotes.length === 0 ? (
+                    <div className="empty">Важных задачь нет</div>
                 ) : (
-                    filtered.map(({note, index}) => (
-                        <div key={index} className={`task ${note.important ? 'important' : ''}`}>
-                            <div className="task-text"
+                    importantNotes.map(({note, index}) => (
+                        <div className={` task ${note.important ? 'important' : ''}`} key={note.id}>
+                            <div className='task-text'
                                 onClick={() => {
                                 setSelectedIndex(index);
                                 setDrawerCollapsed(false);
-                                }} key={index}>
-                            {note.text}</div>
+                                }}>{note.text}</div>
                             <div className="task-header">
                                 <span className="task-date">{note.date}</span>
                                 <button className='task-priority' 
@@ -55,4 +48,4 @@ const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, acti
     );
 };
 
-export default PlansSection;
+export default PrioritySection;

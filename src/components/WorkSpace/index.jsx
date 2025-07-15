@@ -1,4 +1,4 @@
-import './WorkSpace.css'
+import './style.css'
 import { useState, useEffect } from 'react';
 
 const WorkSpace = ({ collapsed, setViewMode, viewMode }) => {

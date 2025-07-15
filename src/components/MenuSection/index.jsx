@@ -1,4 +1,4 @@
-import './menuSection.css';
+import './style.css';
 
 const MenuSection = ({ collapsed, setCollapsed, activeTab, setActiveTab  }) => {
     const handleTabClick = (tab) => {

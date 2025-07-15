@@ -1,4 +1,4 @@
-import './AddSection.css'
+import './style.css'
 
 const AddSection = ({note, setNote, handleAddNote, collapsed, inputRef}) => {
     const handleKeyDown = (e) => {

@@ -1,4 +1,4 @@
-import './DeletedSection.css'
+import './style.css'
 
 const DeletedSection = ({ notes, handleRestore, handleDeleteNote, collapsed, activeTab, viewMode }) => {
   if (activeTab !== 'deleted') return null; 

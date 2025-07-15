@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import './TaskDrawer.css'
+import './style.css'
 
 const TaskDrawer = ({ notes, toggleImportant, toggleCompleted, drawerCollapsed, setDrawerCollapsed, selectedIndex }) => {
     const task = notes[selectedIndex];

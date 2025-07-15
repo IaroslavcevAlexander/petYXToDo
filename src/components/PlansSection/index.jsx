@@ -1,36 +1,43 @@
-import './TodaySection.css'
+import './style.css'
 
-const TodaySection = ({notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode, setSelectedIndex, setDrawerCollapsed }) => {
+const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, activeTab, viewMode, setSelectedIndex, setDrawerCollapsed }) => {
     const today = new Date().toLocaleDateString();
 
-    const todayNotes = notes
+    if (!["all", "today", "important"].includes(activeTab)) return null;
+
+    const filtered = notes
         .map((note, index) => ({ note, index }))
-        .filter(({ note }) => note.date === today && !note.completed);
-        
-    if (activeTab !== "today") return null;
+        .filter(({ note }) => {
+            if (activeTab === "important") return note.important && !note.completed;
+            if (activeTab === "today") return note.date === today && !note.completed;
+            return !note.completed;
+    });
 
     return (
         <>
-            <div className={`today ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
+            <div className={`plans ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
                 <div className={`planss ${collapsed ? 'collapsed' : ''}`}>
-                    <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задача:</h6>
+                    <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задачa:</h6>
                     <h6 className={`date-completion ${collapsed ? 'collapsed' : ''}`}>Дата</h6>
                     <h6 className={`importace ${collapsed ? 'collapsed' : ''}`}>Важность</h6>
                 </div>
 
-                {todayNotes.length === 0 ? (
-                    <div className="empty">Сегодня задачи не были добавлены</div>
+                {filtered.length === 0 ? (
+                    <div className="empty">Задач пока нет</div>
                 ) : (
-                    todayNotes.map(({ note, index}) => (
-                        <div key={note.id} className={` task ${note.important ? 'important' : ''}`}>
-                            <div className="task-text"  
+                    filtered.map(({note, index}) => (
+                        <div key={index} className={`task ${note.important ? 'important' : ''}`}>
+                            <div className="task-text"
                                 onClick={() => {
                                 setSelectedIndex(index);
                                 setDrawerCollapsed(false);
-                                }}>{note.text}</div>
+                                }} key={index}>
+                            {note.text}</div>
                             <div className="task-header">
                                 <span className="task-date">{note.date}</span>
-                                <button className='task-priority' onClick={() => toggleImportant(index)}>
+                                <button className='task-priority' 
+                                        onClick={() => toggleImportant(index)}
+                                >
                                     {note.important ? "!" : ""}
                                 </button>
                                 <button
@@ -48,4 +55,4 @@ const TodaySection = ({notes, toggleCompleted, toggleImportant, collapsed, activ
     );
 };
 
-export default TodaySection;
+export default PlansSection;

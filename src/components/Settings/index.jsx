@@ -1,4 +1,4 @@
-import './Settings.css';
+import './style.css';
 import { useState } from 'react';
 
 const Settings = ({ onClose, changeBackground }) => {

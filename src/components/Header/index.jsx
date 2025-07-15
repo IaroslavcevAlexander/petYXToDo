@@ -1,4 +1,4 @@
-import './Header.css';
+import './style.css';
 
 const Header = ({ setShowSettings, setSearchQuery }) => {
     return (
