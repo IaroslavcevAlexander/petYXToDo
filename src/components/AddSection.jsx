@@ -26,9 +26,11 @@ const AddSection = ({note, setNote, handleAddNote, collapsed, inputRef}) => {
                     onKeyDown={handleKeyDown}
                 />
                 
-                <button className="dieline" title='сроки'>сроки</button>
-                <button className="reminder" title='напомнить'>напомни</button>
-                <button className="repeat" title='повтор'>повтор</button>
+                <div className="btns-add-section">
+                    <button className="btn-add-section" title='сроки'>сроки</button>
+                    <button className="btn-add-section" title='напомнить'>напомни</button>
+                    <button className="btn-add-section" title='повтор'>повтор</button>
+                </div>
             </div>
         </>
     );

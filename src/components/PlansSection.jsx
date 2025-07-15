@@ -18,8 +18,8 @@ const PlansSection = ({ notes, toggleCompleted, toggleImportant, collapsed, acti
             <div className={`plans ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
                 <div className={`planss ${collapsed ? 'collapsed' : ''}`}>
                     <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задачa:</h6>
-                    <h6 className='date-completion'>Дата</h6>
-                    <h6 className='importace'>Важность</h6>
+                    <h6 className={`date-completion ${collapsed ? 'collapsed' : ''}`}>Дата</h6>
+                    <h6 className={`importace ${collapsed ? 'collapsed' : ''}`}>Важность</h6>
                 </div>
 
                 {filtered.length === 0 ? (

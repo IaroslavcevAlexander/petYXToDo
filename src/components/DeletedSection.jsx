@@ -9,7 +9,7 @@ const DeletedSection = ({ notes, handleRestore, handleDeleteNote, collapsed, act
     <div className={`deleted-section ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
       <div className={`planss ${collapsed ? 'collapsed' : ''}`}>
           <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задачa:</h6>
-          <h6 className='date-completion'>Дата</h6>
+            <h6 className={`date-completion ${collapsed ? 'collapsed' : ''}`}>Дата</h6>
       </div>
 
       {deletedNotes.length === 0 ? (

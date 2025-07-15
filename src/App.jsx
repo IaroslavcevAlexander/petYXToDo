@@ -135,7 +135,14 @@ function App() {
 
   const [showSettings, setShowSettings] = useState(false);
 
-  const [bgIndex, setBgIndex] = useState(0);
+  const [bgIndex, setBgIndex] = useState(() => {
+    const saved = localStorage.getItem('bgIndex');
+    return saved ? JSON.parse(saved) : 0;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('bgIndex', JSON.stringify(bgIndex));
+  }, [bgIndex]);
 
   const backgrounds = [
     'wave-gradient',
@@ -144,8 +151,18 @@ function App() {
   ];
 
   const changeBackground = () => {
-    setBgIndex((prev) => (prev + 1) % backgrounds.length);
+      const nextIndex = (bgIndex + 1) % backgrounds.length;
+      setBgIndex(nextIndex);
   };
+
+  // Поиск
+
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredNotes = notes.filter(note =>
+    note.text.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
 
   return (
     <>
@@ -157,7 +174,9 @@ function App() {
       />} 
 
       <Header 
-       setShowSettings={setShowSettings}
+        setShowSettings={setShowSettings}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
       />
       {/* lol */}
 
@@ -194,7 +213,7 @@ function App() {
       />
 
       <TodaySection 
-        notes={notes} 
+        notes={filteredNotes} 
         toggleCompleted={toggleCompleted} 
         toggleImportant={toggleImportant}
         collapsed={menuCollapsed}
@@ -205,7 +224,7 @@ function App() {
       />
 
       <CompletedSection 
-        notes={notes} 
+        notes={filteredNotes} 
         toggleCompleted={toggleCompleted}
         collapsed={menuCollapsed}
         activeTab={activeTab}
@@ -217,7 +236,7 @@ function App() {
 
       {activeTab === 'all' && (
       <PlansSection 
-        notes={notes} 
+        notes={filteredNotes}
         toggleCompleted={toggleCompleted} 
         toggleImportant={toggleImportant}
         collapsed={menuCollapsed}
@@ -230,7 +249,7 @@ function App() {
 
       {activeTab === 'important' && (
       <PrioritySection 
-        notes={notes}
+        notes={filteredNotes}
         toggleImportant={toggleImportant}
         toggleCompleted={toggleCompleted} 
         collapsed={menuCollapsed}
@@ -243,7 +262,7 @@ function App() {
 
       {activeTab === 'deleted' && (
         <DeletedSection 
-          notes={notes}
+          notes={filteredNotes}
           handleRestore={handleRestore}
           handleDeleteNote={handleDeleteNote}
           collapsed={menuCollapsed}

@@ -17,6 +17,7 @@
 
 .add {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     width: 12vw;
@@ -38,53 +39,39 @@
 }
 
 .plans_input {
-    position: fixed;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
     width: 37vw;
     height: 4vh;
-    top: 23.5vh;
-    right: 26vw;
+    left: 14vw;
     border-color: #646cff;
     border-radius: 10px;
     transition: 0.5s;
 }
 
 .plans_input.collapsed {
-    position: fixed;
     width: 55vw;
     height: 4.3vh;
-    top: 23.5vh;
-    right: 26vw;
     border-color: #646cff;
     border-radius: 10px;
     transition: 0.5s;
 }
 
-.dieline {
-    position: fixed;
-    top: 23vh;
-    right: 18.7vw;
-    transition: 0.5s;
-}
-.dieline:hover {
-    color: #646cff;
+.btns-add-section {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    right: 10px;
+    gap: 5px;
 }
 
-.reminder {
-    position: fixed;
-    top: 23vh;
-    right: 10.5vw;
+.btn-add-section {
+    display: flex;
+    flex-direction: row-reverse;
     transition: 0.5s;
+    right: 100px;
 }
-.reminder:hover {
-    color: #646cff;
-}
-
-.repeat {
-    position: fixed;
-    top: 23vh;
-    right: 3.3vw;
-    transition: 0.5s;
-}
-.repeat:hover {
+.btn-add-section:hover {
     color: #646cff;
 }

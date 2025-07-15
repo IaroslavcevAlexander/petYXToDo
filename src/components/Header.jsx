@@ -1,10 +1,16 @@
 import './Header.css';
 
-const Header = ({ setShowSettings }) => {
+const Header = ({ setShowSettings, setSearchQuery }) => {
     return (
         <div className="nav">
             <a href="#" className="logo">ToDo</a>
-            <div className="search-wrapper"><input className='search' type="text" placeholder='Поиск'/></div>
+            <div className="search-wrapper">
+                <input className='search' 
+                    type="text" 
+                    placeholder='Поиск' 
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+            </div>
             <a href="#" className="a">Сортировка</a>
             <a href="#" className="a">Группировать</a>
             <a href="#" className="a">Предложения</a>

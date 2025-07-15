@@ -14,8 +14,8 @@ const TodaySection = ({notes, toggleCompleted, toggleImportant, collapsed, activ
             <div className={`today ${collapsed ? 'collapsed' : ''} ${viewMode === 'grid' ? 'grid-view' : 'list-view'}`}>
                 <div className={`planss ${collapsed ? 'collapsed' : ''}`}>
                     <h6 className={`tasks ${collapsed ? 'collapsed' : ''}`}>Задача:</h6>
-                    <h6 className='date-completion'>Дата</h6>
-                    <h6 className='importace'>Важность</h6>
+                    <h6 className={`date-completion ${collapsed ? 'collapsed' : ''}`}>Дата</h6>
+                    <h6 className={`importace ${collapsed ? 'collapsed' : ''}`}>Важность</h6>
                 </div>
 
                 {todayNotes.length === 0 ? (

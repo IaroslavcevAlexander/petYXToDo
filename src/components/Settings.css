@@ -75,6 +75,9 @@
     border-color: #ff1e1ec4;
     background-color: #3b40a7ee;
     z-index: 2;
+    border: 1px solid;
+    border-color: #ff1e1ec4;
+    border-radius: 4px;
 }
 
 .about-us.show {
@@ -101,6 +104,9 @@
     border-color: #ff1e1ec4;
     background-color: #3b40a7ee;
     z-index: 2;
+    border: 1px solid;
+    border-color: #ff1e1ec4;
+    border-radius: 4px;
 }
 
 .sign-up {
@@ -113,9 +119,11 @@
     left: 40vw;
     top: 15vh;
     padding: 0 10px 0 10px;
-    border-color: #ff1e1ec4;
     background-color: #3b40a7ee;
     z-index: 2;
+    border: 1px solid;
+    border-color: #ff1e1ec4;
+    border-radius: 4px;
 }
 
 h5 {
